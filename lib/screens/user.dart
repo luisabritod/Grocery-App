@@ -1,14 +1,128 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+
+import 'tools/tools.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('User'),
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.only(
+          top: 50,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                text: TextSpan(
+                  text: 'Hi, ',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.blueGrey),
+                  children: [
+                    TextSpan(
+                      text: 'My name',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          print('name pressed');
+                        },
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBoxHeight(),
+              const Text('test@test.com'),
+              const SizedBoxHeight(),
+              Container(
+                height: 2,
+                color: Colors.black12,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.user2,
+                primaryText: 'Adress',
+                secondaryText: 'My Adresses: 2',
+                onTap: () {
+                  print('adress');
+                },
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.wallet,
+                primaryText: 'Orders',
+                secondaryText: '',
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.heart,
+                primaryText: 'WishList',
+                secondaryText: '',
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.show,
+                primaryText: 'Viewed',
+                secondaryText: '',
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.lock,
+                primaryText: 'Forget Password',
+                secondaryText: '',
+                onTap: () {
+                  print('object');
+                },
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              UserSelection(
+                iconSelection: IconlyLight.logout,
+                primaryText: 'Logout',
+                secondaryText: '',
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+}
+
+class SizedBoxHeight extends StatelessWidget {
+  const SizedBoxHeight({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      height: 8,
     );
   }
 }
