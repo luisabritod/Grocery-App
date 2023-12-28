@@ -4,8 +4,22 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 import 'tools/tools.dart';
 
-class UserScreen extends StatelessWidget {
-  const UserScreen({super.key});
+class UserScreen extends StatefulWidget {
+  UserScreen({super.key});
+
+  @override
+  State<UserScreen> createState() => _UserScreenState();
+}
+
+class _UserScreenState extends State<UserScreen> {
+  final TextEditingController _addressTextControler =
+      TextEditingController(text: '');
+
+  @override
+  void dispose() {
+    _addressTextControler.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +71,7 @@ class UserScreen extends StatelessWidget {
                 iconSelection: IconlyLight.user2,
                 primaryText: 'Adress',
                 secondaryText: 'My Adresses: 2',
-                onTap: () {
-                  print('adress');
-                },
+                onTap: _showAddressDialog,
               ),
               const SizedBox(
                 height: 14,
@@ -113,6 +125,31 @@ class UserScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _showAddressDialog() async {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Update'),
+            content: const TextField(
+              // onChanged: (value) {
+              //   print('address: ${_addressTextControler.text}');
+              // },
+              maxLines: 3,
+              decoration: InputDecoration(
+                hintText: 'Your address',
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {},
+                child: const Text('Update'),
+              ),
+            ],
+          );
+        });
   }
 }
 
