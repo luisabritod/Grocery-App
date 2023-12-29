@@ -16,7 +16,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     {'page': const HomeScreen(), 'title': 'Home'},
     {'page': const CategoriesScreen(), 'title': 'Categories'},
     {'page': const CartScreen(), 'title': 'Cart'},
-    {'page': UserScreen(), 'title': 'User'},
+    {'page': const UserScreen(), 'title': 'User'},
   ];
 
   void _selectPage(int index) {

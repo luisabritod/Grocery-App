@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'tools/tools.dart';
 
 class UserScreen extends StatefulWidget {
-  UserScreen({super.key});
+  const UserScreen({super.key});
 
   @override
   State<UserScreen> createState() => _UserScreenState();
@@ -51,7 +51,7 @@ class _UserScreenState extends State<UserScreen> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          print('name pressed');
+                          // print('name pressed');
                         },
                     ),
                   ],
@@ -107,9 +107,7 @@ class _UserScreenState extends State<UserScreen> {
                 iconSelection: IconlyLight.lock,
                 primaryText: 'Forget Password',
                 secondaryText: '',
-                onTap: () {
-                  print('object');
-                },
+                onTap: () {},
               ),
               const SizedBox(
                 height: 14,
@@ -118,13 +116,65 @@ class _UserScreenState extends State<UserScreen> {
                 iconSelection: IconlyLight.logout,
                 primaryText: 'Logout',
                 secondaryText: '',
-                onTap: () {},
+                onTap: _showLogoutDialog,
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _showLogoutDialog() async {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Row(
+              children: [
+                SvgPicture.asset(
+                  'assets/images/warning-sign.svg',
+                  height: 30,
+                  width: 30,
+                  fit: BoxFit.fill,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                const Text(
+                  'Sign out',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            content: const Text(
+              'Do you want sign out?',
+              style: TextStyle(fontSize: 16),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600, color: Colors.blueGrey),
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'OK',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600, color: Colors.redAccent),
+                ),
+              ),
+            ],
+          );
+        });
   }
 
   Future<void> _showAddressDialog() async {
