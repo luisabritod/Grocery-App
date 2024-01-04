@@ -13,9 +13,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     // final themeState = Provider.of<DarkThemeProvider>(context);
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Home'),
+        child: Column(
+          children: [
+            const Text('Home'),
+            Image.asset('assets/images/categories/fruits.png'),
+          ],
+        ),
         // child: SwitchListTile(
         //   title: const Text(
         //     'Theme',
