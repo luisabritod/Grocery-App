@@ -40,7 +40,7 @@ class CategoriesWidget extends StatelessWidget {
                 decoration: const BoxDecoration(),
                 child: Image.asset(catImg),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(
