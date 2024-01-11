@@ -70,13 +70,13 @@ class _FeedItemsWidgetState extends State<FeedItemsWidget> {
                 Flexible(
                   child: Row(
                     children: [
-                      const Text(
-                        '0.99\$',
-                        style: TextStyle(
-                          color: Color(0xff64D65A),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      Flexible(
+                        flex: 6,
+                        child: PriceWidget(
+                            salePrice: 2.99,
+                            price: 5.9,
+                            textPrice: _quantityTextController.text,
+                            isOnSale: true),
                       ),
                       const Spacer(),
                       const FittedBox(child: Text('Kg')),
@@ -84,6 +84,7 @@ class _FeedItemsWidgetState extends State<FeedItemsWidget> {
                         width: 5,
                       ),
                       Flexible(
+                        flex: 2,
                         child: TextFormField(
                           controller: _quantityTextController,
                           key: const ValueKey('value'),
@@ -94,6 +95,9 @@ class _FeedItemsWidgetState extends State<FeedItemsWidget> {
                           keyboardType: TextInputType.number,
                           maxLines: 1,
                           enabled: true,
+                          onChanged: (value) {
+                            setState(() {});
+                          },
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp('[0-9.]'))
                           ],

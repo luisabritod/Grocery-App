@@ -141,11 +141,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 8,
+              ),
               GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
+                padding: EdgeInsets.zero,
                 childAspectRatio: screenSize.width / (screenSize.height * 0.66),
                 children: List.generate(
                   4,
