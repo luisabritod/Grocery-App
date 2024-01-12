@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grocery_app/screens/tools/tools.dart';
 import 'package:grocery_app/widgets/widgets.dart';
 
 // import 'package:grocery_app/provider/provider.dart';
@@ -51,7 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductsOnSaleScreen(),
+                    ),
+                  );
+                },
                 child: const Text(
                   'View all',
                   maxLines: 1,
