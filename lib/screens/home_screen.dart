@@ -25,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final themeState = Provider.of<DarkThemeProvider>(context);
     Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: screenSize.height * 0.06),
@@ -133,13 +133,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const Spacer(),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const FeedsScreen();
+                        }));
+                      },
                       child: const Text(
                         'Browse all',
                         maxLines: 1,
                         style: TextStyle(
                           color: Color(0xff213641),
-                          // fontWeight: FontWeight.w600,
                           fontSize: 20,
                           decoration: TextDecoration.underline,
                           decorationColor: Color(0xff213641),
