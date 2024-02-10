@@ -1,6 +1,8 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:grocery_app/screens/screens.dart';
 import 'package:grocery_app/widgets/widgets.dart';
 
 class FeedItemsWidget extends StatefulWidget {
@@ -34,18 +36,26 @@ class _FeedItemsWidgetState extends State<FeedItemsWidget> {
         borderRadius: BorderRadius.circular(12),
         color: const Color(0xff7A98A7).withOpacity(0.2),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const ProductsDetails();
+                },
+              ),
+            );
+          },
           borderRadius: BorderRadius.circular(12),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Column(
               children: [
-                FancyShimmerImage(
-                  imageUrl:
-                      'https://lh3.googleusercontent.com/pw/ABLVV87C2aKKYoWyKWmbZ6J0Ib41SxkzzR5DxrQoW2mJVRYgbe5HqLMQzrtHyrb7Gbe7_slXICzQtMbMG903BbjSdqFLKEOyK1g4Vsn-CsVLYUXIDleRmPJc8Gx3f169Tg_161X9aCuCZaiwhtE1XAUoF_mTlym9RLBWpyAYf3vUmMVPtHarbHkWWO2_Lkxco1T-_Bx61XCuOfAAtFnGcMlrEMTlcjZzFHFP3LYJMwHdF-Pl-6pREl4sypEde1CPjXSHOALLxXF6zcPFDnAbD5TqiF1lWGQFegerdUG7NqG0wQmSY8F89qMC36mMaX86PUD-7srbMHyK4SZswtsyEM_2nE5gRNzi0OFZP-tVe2sjM3kJv7ROLp8obMmvEPYlWPLIc0Nu2twlXvgkXkYl_yt1fVXJwwFhsJ-WH2j9Zs4iS_xGbhavzs5WHH7NgNO3igRoTOrJLJL9_rRmMO5l8nujefhwtrzn6LzDaS57BePnjLVqINUX7TbaF9FpPEB3V7XV1-sbqUMWBdPa74tohxltIMvRXNx44pKjnVhqkmWtrwxpwgE3nTN9m4Dyo-sFxFGjuoD0jcCmS59IyqbH8npP8wAr8du6amPVioIOuBbkKE4XAIOdh9ClE3CboFi8_h7dDUj-xfWPcrxyRT14wASxWVXetFRXVOULacBAwB1EkKTQBwutPCTsIaSDmU8DNiQw_bjMjN_-8qJiPDug18A8pRaSEKYNmbj6fgRD3IMBN2OY4eXvf5PmmeZsqXZY5kuV3O3XyhrEbosD-Mt149SQmSRZgq5aeoB5q2ja49un0zf-3lKAqz_FPY5yisLV4dfR-TnwmieMEjbyTsYIXsSGrnL126wFcfh9FHwGUjDZ1M9-za6p7BPG4kydU_z9eNCOFCEqzR4=w913-h913-s-no-gm?authuser=0',
+                SvgPicture.asset(
+                  'assets/images/products/strawberry.svg',
                   height: size.height * 0.15,
                   width: size.height * 0.15,
-                  boxFit: BoxFit.fill,
+                  fit: BoxFit.fill,
                 ),
                 const SizedBox(
                   height: 6,

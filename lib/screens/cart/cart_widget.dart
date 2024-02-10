@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_app/screens/cart/components/components.dart';
 
 class CartWidget extends StatefulWidget {
@@ -51,10 +52,9 @@ class _CartWidgetState extends State<CartWidget> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: FancyShimmerImage(
-                    imageUrl:
-                        'https://lh3.googleusercontent.com/pw/ABLVV87-NIb_2dcWnm9P31s5MPmsSwAkYFs5fxjIOtLzS1R2XQAGYWS3afeLYk9noLlaeJbc2Otsb9lLqz962uKbuQxzA2uadWbxUGo2KT-FSpzvY9c1kOyrZkZKvOY0CJRggcnmm_ld9IgS--RN8ZOoE2ix8w_-1_tQuu4xTKT9f70CG2dANEdpVmctQH7Pi7lJ4iXh3CjkeDoshE7Vt8fyJsB7_QHrt15l7j22cXBpSP_F8QYEoI-9WcH3BwSfbqpzI9QD6rOzagQm5NjCsnKngTlFQxqbhF3JOuCB1d3zGTM1RAATcG84LeeZqZ_4yFWAH7gXH11YK5odU9teyVMRXiUQ5Q4yH-IIcKye4c6mkKhnp8Gvb38Gn6znU30XbHJPpVKDb4CQXN2axZlFznCO0HNfWU8_paub9lsPJPLmzyhpFENUXR58qIWT9sdejyVKjeAb1Z-Xi4Nk6cZk2Il-XrtPwtiTvsPPcbAmIOq2IqgOSw-Dih-IGBuELjNXWja8pBjN-e2-w2EmaqA50EFbFQn9SAL4nMp-Kd2bKREBbxk0ovu4eqGHpnjEe5mhKXpBJ6jJnz7Hh8vvCCCFIXsuVaEVA-n6GkPNmOIUEvCZ6DX_UzdSP9B5xpJYNXB6zkXNspl5awTtMxcBSuhRnZD-_JPW-b_ftcO65sb5fKCbepZBAO8Y82ZZkIMnLwV0b7Ev5S50omZhSU3Id5F0nHxPkOxWvErOOa1foYSssWLvvD_64gbR8K_NQbkKOCM8tLF336LrVdT-m3_GMveeTPvBtgqrXy-WQaQ_FimrGUfkISL-mu4yKH7rLjoovv0Ql_pDZNBiE2X0VdWFT544prLWEcZB98TrAEe4YK_DzBvskDJiUm4c953NXU8RYVm-qRh47ewnr38=w945-h945-s-no-gm?authuser=0',
-                    boxFit: BoxFit.fill,
+                  child: SvgPicture.asset(
+                    'assets/images/products/strawberry.svg',
+                    fit: BoxFit.fill,
                   ),
                 ),
                 const SizedBox(
